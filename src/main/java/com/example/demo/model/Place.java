@@ -1,25 +1,57 @@
 package com.example.demo.model;
 
+import com.example.demo.enums.Categories;
+import com.example.demo.enums.PlaceStatus;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name= "restaurant_1")
-public class Restaurant {
+@Table(name= "place_1")
+public class Place {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private String description;
+    private Categories category;
     private String address;
     private Integer rating;
     private Integer ratingCount;
-    public Restaurant() {
+    private PlaceStatus placeStatus;
+
+    public Place() {
     }
 
-    public Restaurant(String name, String address) {
-        this.id = id;
+    public Place(String name, String address, Categories category) {
         this.name = name;
         this.address = address;
+        this.category = category;
     }
+
+    public PlaceStatus getPlaceStatus() {
+        return placeStatus;
+    }
+
+    public void setPlaceStatus(PlaceStatus placeStatus) {
+        this.placeStatus = placeStatus;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Categories getCategory() {
+        return category;
+    }
+
+    public void setCategory(Categories category) {
+        this.category = category;
+    }
+
 
     public Integer getRatingCount() {
         return ratingCount;

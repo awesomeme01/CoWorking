@@ -1,13 +1,13 @@
 DOCUMENTATION FOR THE PROJECT'S REST API COMMNADS
 
 GET
-localhost:8080/api/restaurants/getAll
+localhost:8080/api/places/getAll
 GET
-localhost:8080/api/restaurants/get/{id}
+localhost:8080/api/places/get/{id}
 POST
-localhost:8080/api/restaurants/create
+localhost:8080/api/places/create
 DELETE
-localhost:8080/api/restaurants/delete/{id}
+localhost:8080/api/places/delete/{id}
 
 GET
 localhost:8080/api/users/getAll
@@ -23,7 +23,7 @@ localhost:8080/api/feedbacks/getAll
 GET
 localhost:8080/api/feedbacks/get/{id}
 GET
-localhost:8080/api/feedbacks/getByRestaurantId/{id}
+localhost:8080/api/feedbacks/getByPlaceId/{id}
 POST
 localhost:8080/api/feedbacks/create
 DELETE

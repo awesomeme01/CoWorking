@@ -8,6 +8,6 @@ public interface FeedbackService {
     Feedback createFeedback(Feedback feedback);
     List<Feedback> getAllFeedbacks();
     Feedback getFeedBackById(Long id);
-    List<Feedback> getFeedBackByRestaurant(Long id);
+    List<Feedback> getFeedBackByPlace(Long id);
     void deleteFeedback(Long id);
 }

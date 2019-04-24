@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.example.demo.enums.FeedbackStatus;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -19,17 +20,26 @@ public class Feedback {
     private User userId;
     @OnDelete(action = OnDeleteAction.CASCADE)
     @ManyToOne
-    @JoinColumn(name = "restaurant_id")
-    private Restaurant restaurantId;
+    @JoinColumn(name = "place_id")
+    private Place placeId;
+    private FeedbackStatus feedbackStatus;
 
     public Feedback() {
     }
 
-    public Feedback(String message, Integer rating, User userId, Restaurant restaurantId) {
+    public Feedback(String message, Integer rating, User userId, Place placeId) {
         this.message = message;
         this.rating = rating;
         this.userId = userId;
-        this.restaurantId = restaurantId;
+        this.placeId = placeId;
+    }
+
+    public FeedbackStatus getFeedbackStatus() {
+        return feedbackStatus;
+    }
+
+    public void setFeedbackStatus(FeedbackStatus feedbackStatus) {
+        this.feedbackStatus = feedbackStatus;
     }
 
     public User getUserId() {
@@ -40,12 +50,12 @@ public class Feedback {
         this.userId = userId;
     }
 
-    public Restaurant getRestaurantId() {
-        return restaurantId;
+    public Place getPlaceId() {
+        return placeId;
     }
 
-    public void setRestaurantId(Restaurant restaurantId) {
-        this.restaurantId = restaurantId;
+    public void setPlaceId(Place placeId) {
+        this.placeId = placeId;
     }
 
     public Integer getRating() {

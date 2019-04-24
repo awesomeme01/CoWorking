@@ -1,6 +1,6 @@
 package com.example.demo.model;
 
-import com.example.demo.enums.Status;
+import com.example.demo.enums.UserStatus;
 
 import javax.persistence.*;
 
@@ -12,20 +12,36 @@ public class User {
     private Long id;
     private String fullname;
     private String nickname;
+    private String myStatus;
     private int age;
-    private Status status;
-    private Boolean isActive;
+    private UserStatus status;
+    private String password;
 
     public User() {
     }
 
-    public User(String fullname, String nickname, int age, Status status, Boolean isActive) {
+    public User(String fullname, String nickname, int age, UserStatus status) {
         this.id = id;
         this.fullname = fullname;
         this.nickname = nickname;
         this.age = age;
         this.status = status;
-        this.isActive = isActive;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getMyStatus() {
+        return myStatus;
+    }
+
+    public void setMyStatus(String myStatus) {
+        this.myStatus = myStatus;
     }
 
     public Long getId() {
@@ -60,19 +76,11 @@ public class User {
         this.age = age;
     }
 
-    public Status getStatus() {
+    public UserStatus getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(UserStatus status) {
         this.status = status;
-    }
-
-    public Boolean getActive() {
-        return isActive;
-    }
-
-    public void setActive(Boolean active) {
-        isActive = active;
     }
 }
