@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name= "place_1")
-public class Place {
+public class Place implements Comparable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -93,4 +93,30 @@ public class Place {
         this.rating = rating;
     }
 
+    @Override
+    public int compareTo(Object o) {
+        if(o instanceof Place){
+            if(((Place) o).rating!=null && this.rating ==null){
+                return -1;
+            }
+            else if (((Place) o).rating==null && this.rating !=null){
+                return 1;
+            }
+            else if(((Place) o).rating==null && this.rating == null){
+                return 0;
+            }
+            else{
+                if(this.rating>((Place) o).rating){
+                    return 1;
+                }
+                if (this.rating==((Place) o).rating){
+                    return 0;
+                }
+                if (this.rating < ((Place) o).rating){
+                    return -1;
+                }
+            }
+        }
+        return -2;
+    }
 }

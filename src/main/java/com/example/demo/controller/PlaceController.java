@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Comparator;
 import java.util.NoSuchElementException;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -25,7 +26,7 @@ public class PlaceController {
 
     @GetMapping(path = "/getAll", produces = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE})
     public Response getAllPlaces(){
-        return new Response(true, "All Place ever registered", placeService.getAllPlaces());
+        return new Response(true, "All places", placeService.getAllPlaces());
     }
 
     @GetMapping(path = "/get/{id}", produces = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE})
@@ -37,6 +38,13 @@ public class PlaceController {
             System.out.println(ex);
             return new Response(false,"There is no any Place with id = " + id,null);
         }
+    }
+    @GetMapping(path = "byCategory/{id}", produces = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE})
+    public Response getByCategorySorted(@PathVariable Integer id){
+        if(placeService.getCategory(id)==null){
+            return new Response(false, "Error: There's no such category for id = " + id, null);
+        }
+        return new Response(true, "All restaurants with category " + placeService.getCategory(id), placeService.getByCategory(id));
     }
 
     @PostMapping(path = "/create", produces = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE})

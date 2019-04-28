@@ -10,4 +10,6 @@ public interface PlaceService {
     Place getPlaceById(Long id);
     Place savePlace(Place r);
     void deletePlaceById(Long id);
+    List<Place> getByCategory(Integer categoryId);
+    String getCategory(int id);
 }

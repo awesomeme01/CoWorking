@@ -24,14 +24,14 @@ public class PlaceBootstrap implements CommandLineRunner {
     @Override
     public void run(String ... args)throws  Exception{
         //User(String fullname, String nickname, int age, UserStatus status, Boolean isActive)
-        User user1 = new User("Shabdan Medet uulu", "awesomeme01",17, UserStatus.ACTIVE);
-        //Place(String name, String address)
-        Place place1 = new Place("Ak Saray","Ankara Street", Categories.RESTAURANT);
-        //Feedback(String message, Integer rating, User userId, Place placeId)
-        Feedback feedback = new Feedback("Крутой ресторан!!!", 6, user1, place1);
-        userService.createUser(user1);
-        placeService.savePlace(place1);
-        feedbackService.createFeedback(feedback);
+//        User user1 = new User("Shabdan Medet uulu", "awesomeme01",17, UserStatus.ACTIVE);
+//        //Place(String name, String address)
+//        Place place1 = new Place("Ak Saray","Ankara Street", Categories.RESTAURANT);
+//        //Feedback(String message, Integer rating, User userId, Place placeId)
+//        Feedback feedback = new Feedback("Крутой ресторан!!!", 6, user1, place1);
+//        userService.createUser(user1);
+//        placeService.savePlace(place1);
+//        feedbackService.createFeedback(feedback);
 
     }
 }
